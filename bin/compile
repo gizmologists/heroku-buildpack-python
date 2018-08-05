@@ -314,7 +314,7 @@ fi
 # Django compilescss support.
 # Runs compilescss for Django apps
 (( start=$(nowms) ))
-sub_env "$BIN DIR/steps/compilescss"
+sub_env "$BIN_DIR/steps/compilescss"
 mtime "compilescss.time" "${start}"
 
 
