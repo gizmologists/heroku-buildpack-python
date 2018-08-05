@@ -18,10 +18,12 @@ if  [ -f "$MANAGE_FILE" ] && [ "$LIBSASS_INSTALLED" ]; then
     puts-step "$ python $MANAGE_FILE compilescss --traceback"
     python "$MANAGE_FILE" compilescss --traceback 2>&1 | indent
     COMPILESCSS_STATUS="${PIPESTATUS[0]}"
+    set -e
     [ "$COMPILESCSS_STATUS" -ne 0 ] && {
         echo
         echo " !     Error while running '$ python $MANAGE_FILE compilescss --traceback'."
         # Abort
         exit 1
     }
+    echo
 fi
