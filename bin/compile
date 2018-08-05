@@ -311,6 +311,12 @@ if [[ ! "$BUILD_DIR" == "/app" ]]; then
   deep-cp /app/.heroku/src "$BUILD_DIR/.heroku/src"
 fi
 
+# Django compilescss support.
+# Runs compilescss for Django apps
+(( start=$(nowms) ))
+sub_env "$BIN DIR/steps/compilescss"
+mtime "compilescss.time" "${start}"
+
 
 # Django collectstatic support.
 # The buildpack automatically runs collectstatic for Django applications.
